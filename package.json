@@ -1,0 +1,14 @@
+{
+  "name": "eshop-automation-tests",
+  "version": "1.0.0",
+  "description": "Automation tests for EShop SUT using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
