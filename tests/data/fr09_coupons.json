@@ -1,0 +1,98 @@
+[
+  {
+    "caseId": "FR09-TC-01",
+    "description": "Áp dụng mã giảm giá cố định BIGBUY thành công (đơn hàng > min_amount)",
+    "code": "BIGBUY",
+    "totalAmount": 600000,
+    "expectedStatus": "success",
+    "expectedFinalAmount": 550000
+  },
+  {
+    "caseId": "FR09-TC-02",
+    "description": "Áp dụng mã giảm giá phần trăm SAVE10 thành công (đơn hàng > min_amount)",
+    "code": "SAVE10",
+    "totalAmount": 500000,
+    "expectedStatus": "success",
+    "expectedFinalAmount": 450000
+  },
+  {
+    "caseId": "FR09-TC-03",
+    "description": "Áp dụng mã đã hết hạn EXPIRED",
+    "code": "EXPIRED",
+    "totalAmount": 200000,
+    "expectedStatus": "error",
+    "expectedMessage": "Mã giảm giá đã hết hạn"
+  },
+  {
+    "caseId": "FR09-TC-04",
+    "description": "Áp dụng mã không tồn tại UNKNOWN",
+    "code": "UNKNOWN",
+    "totalAmount": 100000,
+    "expectedStatus": "error",
+    "expectedMessage": "Mã giảm giá không tồn tại"
+  },
+  {
+    "caseId": "FR09-TC-05",
+    "description": "Áp dụng mã SAVE10 cho đơn hàng nhỏ hơn giá trị tối thiểu (200,000 ₫)",
+    "code": "SAVE10",
+    "totalAmount": 200000,
+    "expectedStatus": "error",
+    "expectedMessage": "Đơn hàng chưa đủ giá trị tối thiểu"
+  },
+  {
+    "caseId": "FR09-TC-06",
+    "description": "BVA Biên dưới ngoại biên (299,999 ₫) của mã SAVE10",
+    "code": "SAVE10",
+    "totalAmount": 299999,
+    "expectedStatus": "error",
+    "expectedMessage": "Đơn hàng chưa đủ giá trị tối thiểu"
+  },
+  {
+    "caseId": "FR09-TC-07",
+    "description": "BVA Biên đúng (300,000 ₫) của mã SAVE10",
+    "code": "SAVE10",
+    "totalAmount": 300000,
+    "expectedStatus": "success",
+    "expectedFinalAmount": 270000
+  },
+  {
+    "caseId": "FR09-TC-08",
+    "description": "BVA Biên trên nội biên (300,001 ₫) của mã SAVE10",
+    "code": "SAVE10",
+    "totalAmount": 300001,
+    "expectedStatus": "success",
+    "expectedFinalAmount": 270001
+  },
+  {
+    "caseId": "FR09-TC-09",
+    "description": "Áp dụng mã coupon rỗng",
+    "code": "",
+    "totalAmount": 500000,
+    "expectedStatus": "none",
+    "expectedFinalAmount": 500000
+  },
+  {
+    "caseId": "FR09-TC-10",
+    "description": "Áp dụng mã coupon chứa ký tự khoảng trắng",
+    "code": "  SAVE10  ",
+    "totalAmount": 500000,
+    "expectedStatus": "success",
+    "expectedFinalAmount": 450000
+  },
+  {
+    "caseId": "FR09-TC-11",
+    "description": "Áp dụng mã với tổng tiền đơn hàng bằng 0 ₫",
+    "code": "SAVE10",
+    "totalAmount": 0,
+    "expectedStatus": "error",
+    "expectedMessage": "Đơn hàng chưa đủ giá trị tối thiểu"
+  },
+  {
+    "caseId": "FR09-TC-12",
+    "description": "Áp dụng mã với tổng tiền đơn hàng âm (-100,000 ₫)",
+    "code": "SAVE10",
+    "totalAmount": -100000,
+    "expectedStatus": "error",
+    "expectedMessage": "Đơn hàng chưa đủ giá trị tối thiểu"
+  }
+]
