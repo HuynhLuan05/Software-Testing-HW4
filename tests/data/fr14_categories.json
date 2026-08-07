@@ -1,0 +1,98 @@
+[
+  {
+    "caseId": "FR14-TC-01",
+    "action": "create",
+    "description": "Thêm danh mục mới hợp lệ",
+    "categoryName": "Gia dụng thông minh",
+    "expectedStatus": "success",
+    "expectedMessage": ""
+  },
+  {
+    "caseId": "FR14-TC-02",
+    "action": "create",
+    "description": "Thêm danh mục với tên là chuỗi trống",
+    "categoryName": "",
+    "expectedStatus": "error",
+    "expectedMessage": "Tên danh mục không được để trống"
+  },
+  {
+    "caseId": "FR14-TC-03",
+    "action": "create",
+    "description": "Thêm danh mục trùng tên đã tồn tại",
+    "categoryName": "Laptop",
+    "expectedStatus": "error",
+    "expectedMessage": "Tên danh mục đã tồn tại"
+  },
+  {
+    "caseId": "FR14-TC-04",
+    "action": "create",
+    "description": "Thêm danh mục với tên cực dài (255 ký tự)",
+    "categoryName": "Danh muc kiem thu tu dong hoa cuc ky dai nham kiem tra gioi han kiem soat do dai ky tu cua truong ten danh muc tai backend va frontend eshop de phat hien loi cat xen du lieu hoac tran bo dem co the xay ra khi luu vao co so du lieu SQLite voi kieu du lieu text",
+    "expectedStatus": "success",
+    "expectedMessage": ""
+  },
+  {
+    "caseId": "FR14-TC-05",
+    "action": "create",
+    "description": "Thêm danh mục chứa ký tự đặc biệt",
+    "categoryName": "Category @# &*()!+",
+    "expectedStatus": "success",
+    "expectedMessage": ""
+  },
+  {
+    "caseId": "FR14-TC-06",
+    "action": "create",
+    "description": "Thêm danh mục là số",
+    "categoryName": "1234567890",
+    "expectedStatus": "success",
+    "expectedMessage": ""
+  },
+  {
+    "caseId": "FR14-TC-07",
+    "action": "delete",
+    "description": "Xóa danh mục hợp lệ vừa tạo",
+    "categoryName": "Gia dụng thông minh",
+    "expectedStatus": "success",
+    "expectedMessage": ""
+  },
+  {
+    "caseId": "FR14-TC-08",
+    "action": "delete",
+    "description": "Xóa danh mục đang chứa sản phẩm",
+    "categoryName": "Laptop",
+    "expectedStatus": "error",
+    "expectedMessage": "Không thể xóa danh mục đang chứa sản phẩm"
+  },
+  {
+    "caseId": "FR14-TC-09",
+    "action": "create",
+    "description": "Thêm danh mục chỉ chứa khoảng trắng",
+    "categoryName": "   ",
+    "expectedStatus": "error",
+    "expectedMessage": "Tên danh mục không hợp lệ"
+  },
+  {
+    "caseId": "FR14-TC-10",
+    "action": "create",
+    "description": "Thêm danh mục chứa thẻ HTML (XSS test)",
+    "categoryName": "<script>alert('xss')</script>",
+    "expectedStatus": "success",
+    "expectedMessage": ""
+  },
+  {
+    "caseId": "FR14-TC-11",
+    "action": "delete",
+    "description": "Xóa danh mục chứa ký tự đặc biệt",
+    "categoryName": "Category @# &*()!+",
+    "expectedStatus": "success",
+    "expectedMessage": ""
+  },
+  {
+    "caseId": "FR14-TC-12",
+    "action": "delete",
+    "description": "Xóa danh mục là số",
+    "categoryName": "1234567890",
+    "expectedStatus": "success",
+    "expectedMessage": ""
+  }
+]
