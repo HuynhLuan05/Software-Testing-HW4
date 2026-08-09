@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import testData from '../data/fr09_coupons.json';
 
-const studentId = '23127086'; 
+const studentId = '23127086';
 
 interface CouponTestData {
   caseId: string;
@@ -37,9 +37,10 @@ test.describe(`FR-09: Discount Coupons - Run by: ${studentId}`, () => {
         await expect(applyBtn).toBeDisabled();
         return;
       }
+      const responsePromise = page.waitForResponse(resp => resp.url().includes('/api/coupons') || resp.url().includes('/apply'), { timeout: 3000 }).catch(() => null);
       await applyBtn.click();
-      // Đợi API response
-      await page.waitForTimeout(500);
+      await responsePromise;
+      await page.waitForTimeout(300);
 
       // Kiểm tra kết quả phản hồi
       if (data.expectedStatus === 'success') {
