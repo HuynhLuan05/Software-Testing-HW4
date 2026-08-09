@@ -29,6 +29,7 @@ test.describe(`FR-14: Category Management (CRUD) - Run by: ${studentId}`, () => 
     
     // Xác nhận đã chuyển sang tab Quản lý danh mục
     await expect(page.locator('h2:has-text("Quản lý Danh mục")')).toBeVisible({ timeout: 10000 });
+    await page.waitForLoadState('networkidle');
   });
 
   for (const data of testData) {
